@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accompagner un départ — les démarches après un décès, à votre rythme</title>
+<meta name="description" content="Un aide-mémoire calme pour traverser les démarches après le décès d'un proche. Ce qui presse vraiment, ce qui peut attendre, et où s'arrêter. Tout reste sur votre appareil.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F0E8;
+    --paper-hi:#FBF9F3;
+    --ink:#2C2B27;
+    --ink-soft:#6E6A61;
+    --line:#DAD4C7;
+    --line-soft:#EBE6DA;
+    --sage:#5B7A69;
+    --sage-ink:#3E5A4B;
+    --sage-soft:#E4EBE4;
+    --clay:#A8724A;
+    --clay-ink:#8A5A38;
+    --clay-soft:#F0E4D7;
+    --serif:"IBM Plex Serif",Georgia,serif;
+    --sans:"IBM Plex Sans",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:17px;line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+
+  /* ---- en-tête ---- */
+  header.top{padding:30px 0 22px;border-bottom:1px solid var(--line-soft)}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--sage-ink);
+    text-transform:uppercase;margin:0 0 10px}
+  header.top h1{font-family:var(--serif);font-weight:600;font-size:clamp(28px,5vw,38px);
+    line-height:1.1;letter-spacing:-.01em;margin:0 0 12px}
+  header.top .sub{font-size:17px;color:var(--ink-soft);max-width:56ch;margin:0}
+
+  /* ---- nav douce ---- */
+  nav.jump{position:sticky;top:0;z-index:10;background:rgba(244,240,232,.94);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line-soft);margin-bottom:8px}
+  nav.jump .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 22px;
+    font-family:var(--mono);font-size:12.5px;-ms-overflow-style:none;scrollbar-width:none}
+  nav.jump .wrap::-webkit-scrollbar{display:none}
+  nav.jump a{color:var(--ink-soft);text-decoration:none;white-space:nowrap;
+    padding:5px 11px;border-radius:20px;transition:background .15s,color .15s}
+  nav.jump a:hover{background:var(--sage-soft);color:var(--sage-ink)}
+
+  /* ---- sections ---- */
+  section{padding:36px 0;border-bottom:1px solid var(--line-soft)}
+  .s-num{font-family:var(--mono);font-size:12.5px;color:var(--sage);margin:0 0 6px}
+  h2{font-family:var(--serif);font-weight:600;font-size:clamp(22px,3.4vw,27px);
+    letter-spacing:-.01em;margin:0 0 8px}
+  h2 + .intro{color:var(--ink-soft);margin:0 0 20px;max-width:58ch}
+  h3{font-family:var(--serif);font-weight:600;font-size:18px;margin:0 0 10px}
+
+  .card{background:var(--paper-hi);border:1px solid var(--line);border-radius:12px;
+    padding:20px 20px;margin:14px 0}
+  .card.calm{background:var(--sage-soft);border-color:#CBD8CC}
+  .card.urgent{background:var(--clay-soft);border-color:#E2CDB6}
+  .card h3{margin-top:0}
+  .card p{margin:0 0 10px}
+  .card p:last-child{margin-bottom:0}
+
+  .note{font-size:14.5px;color:var(--ink-soft);background:var(--paper);
+    border-left:3px solid var(--line);padding:11px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+  .note.soft{border-left-color:var(--sage)}
+  .note strong{color:var(--ink)}
+
+  /* ---- listes à cocher ---- */
+  .group{margin:20px 0}
+  .group-head{display:flex;align-items:baseline;gap:10px;margin-bottom:6px}
+  .group-head .when{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;
+    text-transform:uppercase;color:var(--sage-ink);background:var(--sage-soft);
+    padding:3px 9px;border-radius:20px}
+  .group-head .when.now{color:var(--clay-ink);background:var(--clay-soft)}
+  .group-note{font-size:13.5px;color:var(--ink-soft);margin:0 0 4px}
+  .check{display:flex;gap:12px;align-items:flex-start;padding:12px 2px;
+    border-top:1px solid var(--line-soft);cursor:pointer}
+  .check:first-of-type{border-top:0}
+  .check input{margin-top:4px;width:17px;height:17px;accent-color:var(--sage);flex:0 0 auto;cursor:pointer}
+  .check .body{flex:1}
+  .check .t{font-weight:500}
+  .check.done .t{color:var(--ink-soft);text-decoration:line-through;text-decoration-color:var(--line)}
+  .check .d{font-size:14px;color:var(--ink-soft);margin-top:2px;line-height:1.5}
+  .check .d a{color:var(--sage-ink)}
+  .progress{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);
+    margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+  .progress b{color:var(--sage-ink)}
+
+  /* ---- devis / comparaison ---- */
+  .field{margin:0 0 14px}
+  .field label{display:block;font-size:13.5px;font-weight:500;color:var(--ink-soft);margin-bottom:5px}
+  input[type=text],input[type=number],select{width:100%;font:inherit;font-size:16px;
+    padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--paper-hi);color:var(--ink)}
+  input:focus,select:focus{outline:2px solid var(--sage);outline-offset:1px;border-color:var(--sage)}
+  .grid2{display:grid;gap:12px}
+  @media(min-width:560px){.grid2{grid-template-columns:1fr 1fr 1fr}}
+  .compare-out{font-family:var(--mono);font-size:13.5px;color:var(--sage-ink);
+    margin-top:8px;min-height:1.4em}
+
+  /* ---- pills / choix succession ---- */
+  .qa{margin:16px 0}
+  .q{padding:14px 0;border-top:1px solid var(--line-soft)}
+  .q:first-child{border-top:0}
+  .q .ask{font-weight:500;margin-bottom:8px}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .seg button{font:inherit;font-size:14px;padding:7px 18px;border:0;background:var(--paper-hi);
+    color:var(--ink-soft);cursor:pointer;border-left:1px solid var(--line)}
+  .seg button:first-child{border-left:0}
+  .seg button.on{background:var(--sage);color:#fff}
+  .verdict{margin-top:16px;padding:16px 18px;border-radius:10px;font-size:15.5px;line-height:1.55}
+  .verdict.simple{background:var(--sage-soft);border:1px solid #CBD8CC}
+  .verdict.notaire{background:var(--clay-soft);border:1px solid #E2CDB6}
+  .verdict.wait{background:var(--paper-hi);border:1px solid var(--line);color:var(--ink-soft)}
+  .verdict strong{display:block;margin-bottom:4px;font-family:var(--serif);font-size:17px}
+
+  /* ---- ressources ---- */
+  .res{display:flex;flex-direction:column;gap:2px;padding:12px 0;border-top:1px solid var(--line-soft)}
+  .res:first-child{border-top:0}
+  .res .name{font-weight:500}
+  .res .num{font-family:var(--mono);font-size:15px;color:var(--sage-ink)}
+  .res .meta{font-size:13.5px;color:var(--ink-soft)}
+  .links{margin-top:16px;font-size:14.5px;line-height:1.9}
+  .links a{color:var(--sage-ink)}
+
+  footer{padding:30px 0 46px;color:var(--ink-soft);font-size:13.5px;line-height:1.7}
+  footer a{color:var(--sage-ink)}
+  footer .sig{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:15px;margin-bottom:6px}
+
+  ::selection{background:var(--sage-soft)}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Un outil de L'Établi</p>
+    <h1>Accompagner un départ</h1>
+    <p class="sub">Perdre un proche est une épreuve. Les démarches qui suivent ne devraient pas en ajouter une. Voici ce qui presse vraiment, ce qui peut attendre, et où faire appel à quelqu'un — à votre rythme.</p>
+  </div>
+</header>
+
+<nav class="jump">
+  <div class="wrap">
+    <a href="#souffler">Souffler</a>
+    <a href="#obseques">Les obsèques</a>
+    <a href="#prevenir">Prévenir</a>
+    <a href="#droits">Les droits</a>
+    <a href="#succession">La succession</a>
+    <a href="#ressources">Être aidé</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- 1. SOUFFLER -->
+  <section id="souffler">
+    <p class="s-num">01</p>
+    <h2>D'abord, souffler</h2>
+    <p class="intro">Il n'y a que très peu de choses réellement urgentes. Presque tout le reste peut attendre quelques jours, parfois quelques semaines. Commencez par le peu qui presse ; le reste patientera.</p>
+
+    <div class="card urgent">
+      <h3>Les seules vraies urgences</h3>
+      <p><strong>Déclarer le décès à la mairie</strong> du lieu du décès, sous 24 heures. Le plus souvent, les pompes funèbres s'en chargent pour vous. C'est là qu'on obtient l'<strong>acte de décès</strong> — demandez-en une dizaine de copies, chaque organisme en réclamera une.</p>
+      <p><strong>Prévenir la banque</strong> dans les jours qui suivent. Les comptes individuels seront bloqués ; un compte joint, lui, continue de fonctionner.</p>
+      <p><strong>France Travail</strong>, sous 7 jours seulement si le défunt était demandeur d'emploi indemnisé, pour éviter un trop-perçu à rembourser plus tard.</p>
+    </div>
+
+    <div class="note soft">Tout ce qui suit dans cette page — organismes à prévenir, droits à demander, succession — peut se faire posément, sur plusieurs semaines. Rien ici n'est un compte à rebours. Avancez quand vous vous en sentez capable.</div>
+  </section>
+
+  <!-- 2. OBSÈQUES -->
+  <section id="obseques">
+    <p class="s-num">02</p>
+    <h2>Les obsèques</h2>
+    <p class="intro">C'est la décision qu'on prend le plus vite, dans le moment le plus dur — et donc celle où l'on se protège le moins. La loi, pourtant, est de votre côté.</p>
+
+    <div class="card">
+      <h3>Avant tout : chercher ses volontés</h3>
+      <p>Le défunt avait peut-être laissé des consignes, ou souscrit un <strong>contrat obsèques</strong>. En cas de doute, on peut interroger gratuitement l'AGIRA, qui recense les contrats d'assurance : <a href="https://www.agira.asso.fr" target="_blank" rel="noopener">agira.asso.fr</a>. Cela évite de payer deux fois ce qui était déjà prévu.</p>
+    </div>
+
+    <div class="card">
+      <h3>Le devis est un droit, et il est comparable</h3>
+      <p>Toute entreprise de pompes funèbres <strong>doit</strong> remettre un devis gratuit, écrit et détaillé, selon un modèle réglementaire commun à tous. Ce modèle sépare trois familles : les prestations <strong>obligatoires</strong>, les prestations <strong>optionnelles</strong>, et les frais avancés pour votre compte (concession, taxes…).</p>
+      <p>Parce que le modèle est identique partout, deux devis se comparent ligne à ligne — et les écarts de prix, pour des prestations pourtant strictement identiques, sont souvent importants. Prendre le temps de demander deux ou trois devis n'a rien d'indécent : c'est ce que la réglementation a voulu rendre possible.</p>
+    </div>
+
+    <div class="card calm">
+      <h3>Comparer trois devis</h3>
+      <p style="margin-bottom:12px;font-size:14.5px;color:var(--ink-soft)">Notez simplement le total de chaque devis pour les visualiser côte à côte. Rien n'est envoyé nulle part.</p>
+      <div class="grid2">
+        <div class="field"><label>Devis A (€)</label><input type="number" data-devis="a" step="10" inputmode="numeric"></div>
+        <div class="field"><label>Devis B (€)</label><input type="number" data-devis="b" step="10" inputmode="numeric"></div>
+        <div class="field"><label>Devis C (€)</label><input type="number" data-devis="c" step="10" inputmode="numeric"></div>
+      </div>
+      <div class="compare-out" id="compareOut"></div>
+    </div>
+
+    <div class="note">Méfiez-vous des prestations facultatives présentées comme nécessaires. En cas de pratique abusive, on peut saisir la <strong>DGCCRF</strong> (répression des fraudes). Le devis distingue clairement l'obligatoire du reste : c'est votre repère.</div>
+  </section>
+
+  <!-- 3. PRÉVENIR -->
+  <section id="prevenir">
+    <p class="s-num">03</p>
+    <h2>Prévenir les organismes</h2>
+    <p class="intro">Une quinzaine d'organismes, à prévenir dans un ordre logique. Cochez au fur et à mesure — l'outil garde la trace pour vous, sur cet appareil uniquement. Le parcours officiel gratuit « Un proche est décédé » de <a href="https://www.service-public.fr" target="_blank" rel="noopener">service-public.fr</a> regroupe beaucoup de ces démarches en une fois.</p>
+
+    <div id="checklist"></div>
+
+    <div class="progress" id="progress"></div>
+  </section>
+
+  <!-- 4. DROITS -->
+  <section id="droits">
+    <p class="s-num">04</p>
+    <h2>Les droits à ne pas oublier</h2>
+    <p class="intro">Des sommes reviennent souvent aux proches, et se perdent faute d'y penser. Rien ici ne presse au point du reste : la plupart se demandent sur plusieurs mois, voire années.</p>
+
+    <div id="droitsList"></div>
+
+    <div class="note">Les montants et conditions de ces droits évoluent chaque année. Les chiffres exacts sont sur <a href="https://www.service-public.fr" target="_blank" rel="noopener">service-public.fr</a> — cet outil ne les fige pas, pour ne jamais vous induire en erreur.</div>
+  </section>
+
+  <!-- 5. SUCCESSION -->
+  <section id="succession">
+    <p class="s-num">05</p>
+    <h2>La succession</h2>
+    <p class="intro">Contrairement à une idée reçue, le notaire n'est pas toujours obligatoire. Trois questions suffisent à savoir si votre situation permet d'agir seul, ou appelle son intervention.</p>
+
+    <div class="card">
+      <div class="qa" id="succQA">
+        <div class="q">
+          <div class="ask">1. Le patrimoine comprend-il un bien immobilier (même loué, même en partie) ?</div>
+          <div class="seg" data-q="immo"><button data-v="oui">Oui</button><button data-v="non">Non</button></div>
+        </div>
+        <div class="q">
+          <div class="ask">2. Existe-t-il un testament, ou une donation entre époux ?</div>
+          <div class="seg" data-q="test"><button data-v="oui">Oui</button><button data-v="non">Non</button></div>
+        </div>
+        <div class="q">
+          <div class="ask">3. L'actif total dépasse-t-il le seuil légal (environ 5 965 €, revu chaque année) ?</div>
+          <div class="seg" data-q="seuil"><button data-v="oui">Oui</button><button data-v="non">Non</button></div>
+        </div>
+      </div>
+      <div class="verdict wait" id="succVerdict">Répondez aux trois questions pour voir ce qu'il en est.</div>
+    </div>
+
+    <div class="note soft">Même quand la loi ne l'impose pas, un premier rendez-vous d'information chez un notaire est souvent gratuit, et peut rassurer dès que la situation se complique. Si une déclaration de succession fiscale est due, le délai est de <strong>6 mois</strong>.</div>
+  </section>
+
+  <!-- 6. RESSOURCES -->
+  <section id="ressources">
+    <p class="s-num">06</p>
+    <h2>Être aidé, être écouté</h2>
+    <p class="intro">Pour les démarches comme pour le reste. Ces lignes sont gratuites, et certaines sont là jour et nuit.</p>
+
+    <div class="card">
+      <div class="res">
+        <span class="name">France DÉCÈS info</span>
+        <span class="num">0 800 95 95 95</span>
+        <span class="meta">Service public d'information sur les démarches (CNAV). Gratuit, du lundi au vendredi.</span>
+      </div>
+      <div class="res">
+        <span class="name">Info Retraite</span>
+        <span class="num">09 71 09 70 70</span>
+        <span class="meta">Pour la pension de réversion et les droits à la retraite.</span>
+      </div>
+      <div class="res">
+        <span class="name">Croix-Rouge écoute — deuil</span>
+        <span class="num">09 70 28 30 30</span>
+        <span class="meta">Soutien psychologique, 24 h/24, 7 j/7, gratuit et anonyme.</span>
+      </div>
+      <div class="res">
+        <span class="name">3114 — souffrance, pensées sombres</span>
+        <span class="num">3114</span>
+        <span class="meta">Ligne nationale, 24 h/24. Si le chagrin devient trop lourd à porter, on peut appeler.</span>
+      </div>
+    </div>
+
+    <div class="links">
+      Démarches officielles : <a href="https://www.service-public.fr" target="_blank" rel="noopener">service-public.fr — « Un proche est décédé »</a><br>
+      Vérifier un contrat d'assurance : <a href="https://www.agira.asso.fr" target="_blank" rel="noopener">agira.asso.fr</a><br>
+      Devis d'obsèques &amp; litiges : <a href="https://www.economie.gouv.fr/dgccrf" target="_blank" rel="noopener">economie.gouv.fr/dgccrf</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="sig">Accompagner un départ — un outil de L'Établi</div>
+    Ceci est un aide-mémoire, pas un conseil juridique. Les démarches et les montants évoluent : vérifiez toujours sur les sources officielles citées. Tout ce que vous saisissez ici reste sur votre appareil et n'est envoyé nulle part.<br>
+    Reprendre la main. · Sous licence libre — L'Établi.
+  </footer>
+
+</main>
+
+<script>
+"use strict";
+const KEY="letabli_depart_v1";
+let store={};
+try{store=JSON.parse(localStorage.getItem(KEY))||{};}catch(e){store={};}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}
+
+/* ---------- check-list des organismes ---------- */
+const GROUPS=[
+  {when:"Tout de suite",now:true,note:"Les quelques gestes qui évitent des complications plus tard.",items:[
+    {k:"mairie",t:"Mairie — déclaration du décès",d:"Sous 24 h. Souvent fait par les pompes funèbres. Récupérer une dizaine de copies de l'acte de décès."},
+    {k:"pf",t:"Pompes funèbres — organiser les obsèques",d:"Voir la section « Les obsèques » : demander et comparer les devis."},
+    {k:"banque",t:"Banque(s) du défunt",d:"Comptes individuels bloqués ; compte joint maintenu. Les frais bancaires de succession sont désormais plafonnés."},
+    {k:"employeur",t:"Employeur",d:"Si le défunt était en activité — pour le solde de tout compte et d'éventuels capitaux."},
+  ]},
+  {when:"Sous 7 jours",items:[
+    {k:"ft",t:"France Travail",d:"Uniquement si le défunt était demandeur d'emploi indemnisé, pour éviter un trop-perçu."},
+    {k:"mutuelle",t:"Mutuelle / complémentaire santé",d:"Pour clore ou transférer le contrat, et d'éventuels remboursements."},
+    {k:"assur",t:"Assurances (habitation, auto, prévoyance)",d:"Vérifier aussi une éventuelle assurance obsèques ou assurance-vie (via l'AGIRA)."},
+  ]},
+  {when:"Dans le mois",items:[
+    {k:"cpam",t:"CPAM (Assurance maladie)",d:"Et penser à demander le capital décès si le défunt était salarié — on a 2 ans pour le faire."},
+    {k:"retraite",t:"Caisses de retraite (base et complémentaire)",d:"Interrompre la pension, et se renseigner sur la réversion. Info Retraite : 09 71 09 70 70."},
+    {k:"caf",t:"CAF",d:"Si des prestations étaient versées."},
+    {k:"impots",t:"Centre des impôts",d:"Pour la mise à jour de la situation fiscale."},
+    {k:"fournisseurs",t:"Fournisseurs & abonnements",d:"Énergie, eau, internet, téléphone, presse, streaming — résilier ou transférer."},
+    {k:"bailleur",t:"Bailleur ou syndic",d:"Si le défunt était locataire, ou copropriétaire."},
+  ]},
+  {when:"Dans les 6 mois",items:[
+    {k:"succ",t:"Déclaration de succession aux impôts",d:"Si elle est due (voir la section « La succession »). Délai : 6 mois."},
+  ]},
+];
+function renderChecklist(){
+  const box=document.getElementById("checklist");box.innerHTML="";
+  let total=0,done=0;
+  GROUPS.forEach(g=>{
+    const wrap=document.createElement("div");wrap.className="group";
+    let head='<div class="group-head"><span class="when'+(g.now?" now":"")+'">'+g.when+'</span></div>';
+    if(g.note)head+='<p class="group-note">'+g.note+'</p>';
+    wrap.innerHTML=head;
+    g.items.forEach(it=>{
+      total++;
+      const on=!!store["chk_"+it.k];if(on)done++;
+      const lab=document.createElement("label");
+      lab.className="check"+(on?" done":"");
+      lab.innerHTML='<input type="checkbox"'+(on?" checked":"")+'>'+
+        '<span class="body"><span class="t">'+it.t+'</span><span class="d">'+it.d+'</span></span>';
+      lab.querySelector("input").addEventListener("change",e=>{
+        store["chk_"+it.k]=e.target.checked;save();renderChecklist();
+      });
+      wrap.appendChild(lab);
+    });
+    box.appendChild(wrap);
+  });
+  const p=document.getElementById("progress");
+  p.innerHTML='<b>'+done+'</b> démarche'+(done>1?"s":"")+' sur '+total+' — et rien ne presse. Reprenez quand vous voulez.';
+}
+
+/* ---------- droits à réclamer ---------- */
+const DROITS=[
+  {k:"capdeces",t:"Capital décès de la CPAM",d:"Pour les proches d'un salarié. Souvent oublié — on a 2 ans pour le demander."},
+  {k:"reversion",t:"Pension de réversion",d:"Une part de la retraite du défunt peut revenir au conjoint survivant, sous conditions. Info Retraite : 09 71 09 70 70."},
+  {k:"veuvage",t:"Allocation veuvage",d:"Sous conditions d'âge et de ressources, avant l'âge de la réversion."},
+  {k:"assurvie",t:"Assurance-vie / contrat obsèques",d:"Interroger l'AGIRA pour savoir si le défunt en avait souscrit un, et qui en est bénéficiaire."},
+  {k:"fonctionpub",t:"Capital décès (fonction publique, régimes spéciaux)",d:"Selon le statut du défunt — se renseigner auprès de son employeur ou de sa caisse."},
+];
+function renderDroits(){
+  const box=document.getElementById("droitsList");box.innerHTML="";
+  const wrap=document.createElement("div");wrap.className="group";
+  DROITS.forEach(it=>{
+    const on=!!store["dr_"+it.k];
+    const lab=document.createElement("label");
+    lab.className="check"+(on?" done":"");
+    lab.innerHTML='<input type="checkbox"'+(on?" checked":"")+'>'+
+      '<span class="body"><span class="t">'+it.t+'</span><span class="d">'+it.d+'</span></span>';
+    lab.querySelector("input").addEventListener("change",e=>{
+      store["dr_"+it.k]=e.target.checked;save();renderDroits();
+    });
+    wrap.appendChild(lab);
+  });
+  box.appendChild(wrap);
+}
+
+/* ---------- comparaison de devis ---------- */
+function renderCompare(){
+  const out=document.getElementById("compareOut");
+  const vals=["a","b","c"].map(k=>Number(store["devis_"+k])||0).filter(v=>v>0);
+  if(vals.length<2){out.textContent="";return;}
+  const min=Math.min(...vals),max=Math.max(...vals),ecart=max-min;
+  out.textContent="Écart entre le moins-disant et le plus cher : "+ecart.toLocaleString("fr-FR")+" € (de "+min.toLocaleString("fr-FR")+" € à "+max.toLocaleString("fr-FR")+" €).";
+}
+document.querySelectorAll("[data-devis]").forEach(inp=>{
+  const k=inp.dataset.devis;
+  inp.value=store["devis_"+k]||"";
+  inp.addEventListener("input",e=>{store["devis_"+k]=e.target.value;save();renderCompare();});
+});
+
+/* ---------- succession ---------- */
+function renderSucc(){
+  document.querySelectorAll("#succQA .seg").forEach(seg=>{
+    const q=seg.dataset.q,val=store["succ_"+q];
+    seg.querySelectorAll("button").forEach(b=>b.classList.toggle("on",b.dataset.v===val));
+  });
+  const v=document.getElementById("succVerdict");
+  const immo=store.succ_immo,test=store.succ_test,seuil=store.succ_seuil;
+  if(!immo||!test||!seuil){
+    v.className="verdict wait";
+    v.textContent="Répondez aux trois questions pour voir ce qu'il en est.";
+    return;
+  }
+  if(immo==="oui"||test==="oui"||seuil==="oui"){
+    v.className="verdict notaire";
+    v.innerHTML="<strong>Le notaire sera nécessaire.</strong>Au moins une des situations impose son intervention (acte de notoriété ou attestation de propriété). C'est là son vrai métier — inutile de le contourner. Pensez au premier rendez-vous d'information, souvent gratuit.";
+  }else{
+    v.className="verdict simple";
+    v.innerHTML="<strong>Vous pouvez sans doute agir sans notaire.</strong>Sans immobilier, sans testament, et sous le seuil légal, les héritiers peuvent signer une attestation et demander à la banque de débloquer les fonds. Une démarche gratuite. En cas de doute, vérifiez sur service-public.fr.";
+  }
+}
+document.querySelectorAll("#succQA .seg button").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    const q=btn.closest(".seg").dataset.q;
+    store["succ_"+q]=btn.dataset.v;save();renderSucc();
+  });
+});
+
+renderChecklist();
+renderDroits();
+renderCompare();
+renderSucc();
+</script>
+</body>
+</html>
